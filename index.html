@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    
+
+     option = {
+  title: {
+    text: ' '
+  },
+  tooltip: {
+    trigger: 'axis'
+  },
+   legend: {   
+        padding:[100,2022,100],     
+      
+  },
+  grid: {
+    left: '5%',
+    right: '0%',
+    bottom: '3%',
+    containLabel: true
+  },
+  toolbox: {
+    feature: {
+      saveAsImage: {}
+    }
+  },
+  xAxis: {
+    type: 'category',
+    boundaryGap: false,
+    data: ['2000', '2001', '2002', '2003', '2004', '2005', '2006','2007', '2008', '2009', '2010', '2011', '2012', '2013','2014', '2015', '2016','2017', '2018', '2019', '2020', '2021', '2022']
+  },
+  yAxis: {
+    type: 'value',
+     axisLabel: {
+      formatter: '{value} 万千瓦'
+    }
+  },
+  series: [
+    {
+      name: '水电',
+      type: 'line',
+      data: [7935,8301,8607,9490,10524,11739,13029,14823,17260,19629,21606,23298,24947,28044,30486,31954,33207,34359,35259,35804,37028,39094
+]
+    },
+    {
+      name: '风电',
+      type: 'line',
+      data: [34,38,47,55,82,106,207,420,839,760,2958,4623,6142,7652,9657,13075,14747,16325,18427,20915,28165,32871
+]
+    },
+    {
+      name: '核电',
+      type: 'line',
+      data: [210,210,447,619,696,696,696,908,908,908,1082,1257,1257,1466,2008,2717,3364,3582,4466,4874,4989,5326
+]
+    },
+    {
+      name: '太阳能发电',
+      type: 'line',
+      data: [0,0,0,0,0,0,0,0,0,3,26,212,341,1589,2486,4218,7631,12942,17433,20418,25356,30654
+]
+    },
+  ]
+};
+
+
+ 
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
